@@ -1,17 +1,14 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      <home-card [total]="countLegalPeople" title="Legal People" icon="group"></home-card>
-    </div>
-    <div class="col-md-3">
-      <home-card [total]="countPhysicalPeople" title="Physical People" icon="group"></home-card>
-    </div>
-    <div class="col-md-3">
-      <home-card [total]="countDepartments" title="Departments" icon="lists"></home-card>
-    </div>
-    <div class="col-md-3">
-      <home-card [total]="countUsers" title="Users" icon="group"></home-card>
-    </div>
+<div class="wrapper">
+  <aside>
+    <home-aside-menu></home-aside-menu>
+  </aside>
+  <div class="content">
+    <home-header [nickname]="user.nickName" class="w-100"></home-header>
+      <mat-card class="dynamic-content">
+        <mat-card-content>
+          <router-outlet></router-outlet>
+        </mat-card-content>
+      </mat-card>
+    <home-footer class="w-100"></home-footer>
   </div>
 </div>
-<button (click)="logout()">logout</button>

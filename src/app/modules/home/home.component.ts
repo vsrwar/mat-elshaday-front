@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { HomeService } from './services/services.service';
+import { Component } from '@angular/core';
+import { UserResponse } from 'src/app/models/user.response';
 import { SessionStorageService } from 'src/app/services/session-storage.service';
 
 @Component({
@@ -7,23 +7,11 @@ import { SessionStorageService } from 'src/app/services/session-storage.service'
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  countLegalPeople: number = 0;
-  countPhysicalPeople: number = 0;
-  countDepartments: number = 0;
-  countUsers: number = 0;
+  user: UserResponse;
 
-  constructor(private service: HomeService, private sessionStorageService: SessionStorageService) { }
-  
-  ngOnInit(): void {
-    this.service.getTotalLegalPeople().subscribe((data) => this.countLegalPeople = data);
-    this.service.getTotalPhysicalPeople().subscribe((data) => this.countPhysicalPeople = data);
-    this.service.getTotalDepartments().subscribe((data) => this.countDepartments = data);
-    this.service.getTotalUsers().subscribe((data) => this.countUsers = data);
-  }
-
-  logout(): void {
-    this.sessionStorageService.logout();
+  constructor(private sessionStorageService: SessionStorageService) {
+    this.user = this.sessionStorageService.getUser()!.user;
   }
 }

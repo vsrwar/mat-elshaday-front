@@ -9,4 +9,5 @@ export class CardComponent {
   @Input() title: string = "";
   @Input() total: number = 0;
   @Input() icon: string = "";
+  @Input() route: string = "";
 }

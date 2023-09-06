@@ -16,11 +16,15 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ReactiveFormsModule } from '@angular/forms';
 import {  HttpClientModule } from '@angular/common/http';
 import { Interceptor } from './http-interceptor.module';
+import { PasswordRecoveryComponent } from './auth/password-recovery/password-recovery.component';
+import { ChangePasswordComponent } from './auth/change-password/change-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    PasswordRecoveryComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

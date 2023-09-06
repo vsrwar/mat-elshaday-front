@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     this.verifyAlreadyLogged();
 
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      nickname: ['', [Validators.required]],
       password: ['', [Validators.required]]
     }) 
   }

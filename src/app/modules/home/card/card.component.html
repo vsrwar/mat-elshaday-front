@@ -1,8 +1,8 @@
 <mat-card class="card">
   <mat-card-header>
     <div>
-      <mat-icon aria-hidden="false" aria-label="Example home icon" [fontIcon]="icon"></mat-icon>
-      {{title}}
+      <mat-icon aria-hidden="false" [fontIcon]="icon" class="icon"></mat-icon>
+      <a [routerLink]="[route]">{{title}}</a>
     </div>
   </mat-card-header>
   <mat-card-content class="content">

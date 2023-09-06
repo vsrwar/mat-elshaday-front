@@ -1,0 +1,30 @@
+<div class="wrapper">
+    <img src="./assets/images/logo.png" alt="logo" [routerLink]="['dashboard']" style="cursor: pointer;"/>
+    <mat-divider></mat-divider>
+    <ul>
+        <li>
+            <button [routerLink]="['dashboard']" routerLinkActive="router-link-active">
+                <mat-icon aria-hidden="false" class="menu-icon">dashboard</mat-icon>
+                Dashboard
+            </button>
+        </li>
+        <li>
+            <button [routerLink]="['users']" routerLinkActive="router-link-active">
+                <mat-icon aria-hidden="false" class="menu-icon">group</mat-icon>
+                Users
+            </button>
+        </li>
+        <li>
+            <button [routerLink]="['departments']" routerLinkActive="router-link-active">
+                <mat-icon aria-hidden="false" class="menu-icon">domain</mat-icon>
+                Departments
+            </button>
+        </li>
+        <li>
+            <button [routerLink]="['people']" routerLinkActive="router-link-active">
+                <mat-icon aria-hidden="false" class="menu-icon">groups</mat-icon>
+                People
+            </button>
+        </li>
+    </ul>
+</div>

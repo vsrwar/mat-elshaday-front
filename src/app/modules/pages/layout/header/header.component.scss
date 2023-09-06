@@ -1,0 +1,18 @@
+header {
+    background-color: transparent;
+    height: 80px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 80px;
+
+    span {
+        margin: 0 10px;
+    }
+
+    .arrow-down {
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+    }
+}
