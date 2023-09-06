@@ -1,0 +1,18 @@
+main {
+    background-color: #eee !important;
+
+    .center-horizontal-vertical {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login-card {
+        position: absolute;
+        width: 450px;
+    }
+
+    .mb-20 {
+        margin-bottom: 20px;
+    }
+}

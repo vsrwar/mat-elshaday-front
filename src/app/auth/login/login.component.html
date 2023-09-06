@@ -1,0 +1,24 @@
+<main>
+  <div class="container center-horizontal-vertical" style="height: 100vh;">
+    <mat-card class="login-card">
+      <mat-card-header class="center-horizontal-vertical mb-20">
+          <mat-card-title>
+            <img src="./assets/images/logo.png" alt="logo" />
+          </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form class="form-control" [formGroup]="loginForm" (ngSubmit)="login()">
+          <mat-label>Email</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput type="email" class="form-control" formControlName="email" required />
+          </mat-form-field>
+          <mat-label>Password</mat-label>
+          <mat-form-field appearance="outline" class="w-100" color="primary">
+            <input matInput type="password" class="form-control" formControlName="password" required />
+          </mat-form-field>
+          <button type="submit" mat-flat-button color="primary" class="w-100">Login</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</main>

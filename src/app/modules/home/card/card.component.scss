@@ -1,0 +1,19 @@
+.card {
+    min-height: 120px;
+    padding: 10px 10px;
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .content {
+        margin-top: auto;
+        p {
+            font-size: 3em;
+            text-align: end;
+        }
+    }    
+}
