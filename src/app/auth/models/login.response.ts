@@ -1,4 +1,4 @@
-import { UserResponse } from "src/app/models/user.response";
+import { UserResponse } from "src/app/models/responses/user.response";
 
 export interface LoginResponse {
   token: string;

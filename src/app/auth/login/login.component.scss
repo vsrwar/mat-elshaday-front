@@ -1,4 +1,4 @@
-main {
+.main {
     background-color: #eee !important;
 
     .center-horizontal-vertical {
@@ -10,6 +10,8 @@ main {
     .login-card {
         position: absolute;
         width: 450px;
+        display: flex;
+        align-items: center;
     }
 
     .mb-20 {
@@ -17,10 +19,11 @@ main {
     }
 
     .mat-footer {
-        text-align: end;
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
 
         a {
-            font-size: 0.8em;
             text-decoration: none;
         }
 

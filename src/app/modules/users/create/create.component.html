@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>Create a new user</h2>
+  <div class="center-horizontal-vertical">
+    <form (ngSubmit)="createUser()" [formGroup]="createUserForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label> 
+        <input matInput formControlName="email" placeholder="email@elshaday.com" required />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Nick Name</mat-label> 
+        <input matInput formControlName="nickName" placeholder="Nick" required />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label> 
+        <input matInput formControlName="password" placeholder="strong pass" type="password" required />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Confirm Password</mat-label> 
+        <input matInput formControlName="confirmPassword" placeholder="confirm strong pass" type="password"  required />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Role</mat-label> 
+        <mat-select formControlName="role" required>
+          <mat-option value="1">Administrator</mat-option>
+          <mat-option value="2">Common</mat-option>
+        </mat-select>
+      </mat-form-field> 
+      <button mat-flat-button class="submit-btn" type="submit">Submit</button>
+    </form>
+  </div>
+</div>

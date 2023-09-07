@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Confirmation</h1>
+<div mat-dialog-content>
+  Would you like to procced?
+</div>
+<div mat-dialog-actions style="display: flex; justify-content: flex-end;">
+  <button class="red" mat-flat-button (click)="emit(false)">No</button>
+  <button class="ok" mat-flat-button (click)="emit(true)">Yes</button>
+</div>

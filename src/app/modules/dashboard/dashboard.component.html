@@ -1,17 +1,17 @@
 <div class="container">
   <h2>Dashboard</h2>
-  <div class="row">
-    <div class="col-md-3">
-      <home-card [total]="countLegalPeople" title="Legal People" icon="group" route="people"></home-card>
+  <div class="content">
+    <div class="w-24">
+      <home-card [total]="countLegalPeople" title="Legal People" icon="group" route="/home/people"></home-card>
     </div>
-    <div class="col-md-3">
-      <home-card [total]="countPhysicalPeople" title="Physical People" icon="group" route="people"></home-card>
+    <div class="w-24">
+      <home-card [total]="countPhysicalPeople" title="Physical People" icon="group" route="/home/people"></home-card>
     </div>
-    <div class="col-md-3">
-      <home-card [total]="countDepartments" title="Departments" icon="domain" route="departments"></home-card>
+    <div class="w-24">
+      <home-card [total]="countDepartments" title="Departments" icon="domain" route="/home/departments"></home-card>
     </div>
-    <div class="col-md-3">
-      <home-card [total]="countUsers" title="Users" icon="group" route="users"></home-card>
+    <div class="w-24" *ngIf="isAdmin">
+      <home-card [total]="countUsers" title="Users" icon="group" route="/home/users"></home-card>
     </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UserResponse } from 'src/app/models/user.response';
+import { UserResponse } from 'src/app/models/responses/user.response';
 import { SessionStorageService } from 'src/app/services/session-storage.service';
 
 @Component({

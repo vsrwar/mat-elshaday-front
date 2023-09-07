@@ -52,7 +52,7 @@ export class ChangePasswordComponent implements OnInit{
           }
         },
         error: (err: any) => {
-          this.snackBar.open(err.error, 'Ok', { duration: 3000 });
+          this.snackBar.open(err.error.title, 'Ok', { duration: 3000 });
         }
       });
   }

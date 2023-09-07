@@ -1,0 +1,25 @@
+h2 {
+    color: #f49121;
+}
+
+.center-horizontal-vertical {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+
+    .submit-btn {
+        color: #000;
+        border: 1px solid #f49121;
+    }
+    
+    .submit-btn:hover {
+        background-color: #f49121;
+        color: white;
+    }
+}

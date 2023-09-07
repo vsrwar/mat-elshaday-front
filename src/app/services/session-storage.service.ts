@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { LoginResponse } from '../auth/models/login.response';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Role } from '../models/enums/role.enum';
 
 
 @Injectable({
@@ -40,5 +41,10 @@ export class SessionStorageService {
     }
 
     return false;
+  }
+
+  isAdmin(): boolean {
+    const login = this.getUser();
+    return login?.user?.role === Role.Admin || false;
   }
 }
