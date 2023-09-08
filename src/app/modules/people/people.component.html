@@ -1,0 +1,131 @@
+<div class="container">
+  <div class="header">
+    <h2>People</h2>
+    <button mat-flat-button [routerLink]="['create']">
+      <mat-icon>add_circle_outline</mat-icon>
+      <span>Add Person</span>
+    </button>
+  </div>
+
+  <mat-tab-group mat-align-tabs="center" [color]="'warn'">
+    <mat-tab label="Physical">
+      <table mat-table [dataSource]="physicalPeople" class="mat-elevation-z8">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Id </th>
+          <td mat-cell *matCellDef="let physicalPerson"> {{physicalPerson.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="addressId">
+          <th mat-header-cell *matHeaderCellDef> Address Id </th>
+          <td mat-cell *matCellDef="let physicalPerson"> {{physicalPerson.addressId}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="qualifier">
+          <th mat-header-cell *matHeaderCellDef> Qualifier </th>
+          <td mat-cell *matCellDef="let physicalPerson"> {{getStringQualifier(physicalPerson.qualifier)}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="cpf">
+          <th mat-header-cell *matHeaderCellDef> CPF </th>
+          <td mat-cell *matCellDef="let physicalPerson"> {{physicalPerson.cpf.value}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let physicalPerson"> {{physicalPerson.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="nickName">
+          <th mat-header-cell *matHeaderCellDef> NickName </th>
+          <td mat-cell *matCellDef="let physicalPerson"> {{physicalPerson.nickName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef> Type </th>
+          <td mat-cell *matCellDef="let physicalPerson"> {{physicalPerson.type}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let physicalPerson">
+            <mat-icon class="icon-action" (click)="deletePhysicalPerson(physicalPerson.id)">delete_forever</mat-icon>
+            <mat-icon class="icon-action" [routerLink]="['edit', physicalPerson.type, physicalPerson.id]">edit</mat-icon>
+          </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedPhysicalPersonColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedPhysicalPersonColumns;"></tr>
+      </table>
+    
+      <div class="footer">
+        <mat-paginator [length]="totalPhysicalPeople"
+          [pageSize]="10"
+          [pageSizeOptions]="[5, 10, 25, 100]"
+          [showFirstLastButtons]="true"
+          aria-label="Select page"
+          (page)="handlePhysicalPageEvent($event)">
+        </mat-paginator>
+      </div>
+    </mat-tab>
+    
+    <mat-tab label="Legal">
+      <table mat-table [dataSource]="legalPeople" class="mat-elevation-z8">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Id </th>
+          <td mat-cell *matCellDef="let legalPerson"> {{legalPerson.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="addressId">
+          <th mat-header-cell *matHeaderCellDef> Address Id </th>
+          <td mat-cell *matCellDef="let legalPerson"> {{legalPerson.addressId}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="qualifier">
+          <th mat-header-cell *matHeaderCellDef> Qualifier </th>
+          <td mat-cell *matCellDef="let legalPerson"> {{getStringQualifier(legalPerson.qualifier)}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="cnpj">
+          <th mat-header-cell *matHeaderCellDef> CNPJ </th>
+          <td mat-cell *matCellDef="let legalPerson"> {{legalPerson.cnpj.value}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="corporateName">
+          <th mat-header-cell *matHeaderCellDef> Corporate Name </th>
+          <td mat-cell *matCellDef="let legalPerson"> {{legalPerson.corporateName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="fantasyName">
+          <th mat-header-cell *matHeaderCellDef> Fantasy Name </th>
+          <td mat-cell *matCellDef="let legalPerson"> {{legalPerson.fantasyName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef> Type </th>
+          <td mat-cell *matCellDef="let legalPerson"> {{legalPerson.type}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let legalPerson">
+            <mat-icon class="icon-action" (click)="deleteLegalPerson(legalPerson.id)">delete_forever</mat-icon>
+            <mat-icon class="icon-action" [routerLink]="['edit', legalPerson.type, legalPerson.id]">edit</mat-icon>
+          </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedLegalPersonColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedLegalPersonColumns;"></tr>
+      </table>
+    
+      <div class="footer">
+        <mat-paginator [length]="totalLegalPeople"
+          [pageSize]="10"
+          [pageSizeOptions]="[5, 10, 25, 100]"
+          [showFirstLastButtons]="true"
+          aria-label="Select page"
+          (page)="handleLegalPageEvent($event)">
+        </mat-paginator>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

@@ -16,7 +16,7 @@ export class HttpsRequestInterceptor implements HttpInterceptor {
     
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         this.isLoggedIn = this.storageService.isLoggedIn();
-        if(this.isLoggedIn){
+        if(this.isLoggedIn && req.url.indexOf('viacep') < 0){
             const user = this.storageService.getUser();
             const dupReq = req.clone({
                 setHeaders: {

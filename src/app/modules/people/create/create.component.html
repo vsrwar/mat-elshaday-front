@@ -1,0 +1,116 @@
+<div class="container">
+  <h2>Create a person</h2>
+  <mat-tab-group mat-align-tabs="center" [color]="'warn'">
+    <mat-tab label="Physical">
+      <div class="center-horizontal-vertical">
+        <form (ngSubmit)="createPhysicalPerson()" [formGroup]="createPhysicalPersonForm">
+          <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label> 
+            <input matInput formControlName="name" placeholder="John Doe" required />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Nick Name</mat-label> 
+            <input matInput formControlName="nickName" placeholder="Nick" />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>CPF</mat-label> 
+            <input matInput formControlName="cpf" placeholder="xxx.xxx.xxx-xx" type="text" maxlength="11" required />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Qualifier</mat-label> 
+            <mat-select formControlName="qualifier" required>
+              <mat-option value="1">Customer</mat-option>
+              <mat-option value="2">Supplier</mat-option>
+              <mat-option value="3">Employee</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Zip Code</mat-label> 
+            <input matInput formControlName="cep" placeholder="xx.xxx-xxx" type="text" (change)="cepPhysicalChanged($event)" maxlength="8" required />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Logradouro</mat-label> 
+            <input matInput formControlName="logradouro" type="text" required />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Complemento</mat-label> 
+            <input matInput formControlName="complemento" type="text" />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Bairro</mat-label> 
+            <input matInput formControlName="bairro" type="text" required />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Localidade</mat-label> 
+            <input matInput formControlName="localidade" type="text" required />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>UF</mat-label> 
+            <input matInput formControlName="uf" type="text" required />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Némero</mat-label> 
+            <input matInput formControlName="numero" type="text" required />
+          </mat-form-field>
+          <button mat-flat-button class="submit-btn" type="submit">Submit</button>
+        </form>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Legal">
+      <div class="center-horizontal-vertical">
+        <form (ngSubmit)="createLegalPerson()" [formGroup]="createLegalPersonForm">
+          <mat-form-field appearance="outline">
+            <mat-label>Corporate Name</mat-label> 
+            <input matInput formControlName="corporateName" placeholder="John Doe LTDA" required />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Fantasy Name</mat-label> 
+            <input matInput formControlName="fantasyName" placeholder="Nick" />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>CNPJ</mat-label> 
+            <input matInput formControlName="cnpj" placeholder="xx.xxx.xxx/xxxx-xx" type="text" maxlength="14" required />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Qualifier</mat-label> 
+            <mat-select formControlName="qualifier" required>
+              <mat-option value="1">Customer</mat-option>
+              <mat-option value="2">Supplier</mat-option>
+              <mat-option value="3">Employee</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Zip Code</mat-label> 
+            <input matInput formControlName="cep" placeholder="xx.xxx-xxx" type="text" (change)="cepLegalChanged($event)" maxlength="8" required />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Logradouro</mat-label> 
+            <input matInput formControlName="logradouro" type="text" required />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Complemento</mat-label> 
+            <input matInput formControlName="complemento" type="text" />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Bairro</mat-label> 
+            <input matInput formControlName="bairro" type="text" required />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Localidade</mat-label> 
+            <input matInput formControlName="localidade" type="text" required />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>UF</mat-label> 
+            <input matInput formControlName="uf" type="text" required />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Número</mat-label> 
+            <input matInput formControlName="numero" type="text" required />
+          </mat-form-field>
+          <button mat-flat-button class="submit-btn" type="submit">Submit</button>
+        </form>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

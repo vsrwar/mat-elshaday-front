@@ -2,24 +2,33 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
-import { CardComponent } from './card/card.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatButtonModule } from '@angular/material/button';
-
-import { DashboardComponent } from '../dashboard/dashboard.component';
 import { HeaderComponent } from '../pages/layout/header/header.component';
 import { FooterComponent } from '../pages/layout/footer/footer.component';
 import { AsideMenuComponent } from '../pages/layout/aside-menu/aside-menu.component';
+
+import { CardComponent } from './card/card.component';
+
+import { ConfirmActionDialogComponent } from 'src/app/dialogs/confirm-action-dialog/confirm-action-dialog.component';
+
+import { DashboardComponent } from '../dashboard/dashboard.component';
+
 import { UserComponent } from '../users/user.component';
 import { UserCreateComponent } from '../users/create/create.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { ConfirmActionDialogComponent } from 'src/app/dialogs/confirm-action-dialog/confirm-action-dialog.component';
 import { UserEditComponent } from '../users/edit/edit.component';
 
+import { DepartmentsComponent } from '../departments/departments.component';
+
+import { PeopleComponent } from '../people/people.component';
+import { PersonCreateComponent } from '../people/create/create.component';
+import { PersonEditComponent } from '../people/edit/edit.component';
+
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -27,6 +36,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -36,9 +46,16 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     HeaderComponent,
     FooterComponent,
     AsideMenuComponent,
+    
     UserComponent,
     UserCreateComponent,
     UserEditComponent,
+
+    DepartmentsComponent,
+
+    PeopleComponent,
+    PersonCreateComponent,
+    PersonEditComponent,
 
     ConfirmActionDialogComponent
   ],
@@ -58,7 +75,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatTableModule,
     MatSlideToggleModule,
     MatDialogModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatTabsModule
   ]
 })
 export class HomeModule { }

@@ -31,22 +31,22 @@ export class UserCreateComponent {
   }
 
   createUser(){
-    if(this.createUserForm?.valid) {
-      this.user = Object.assign({}, this.user, this.createUserForm?.value);
-      this.user.role = parseInt(this.user.role.toString());
-      this.service.createUser(this.user)
-        .subscribe({
-          next: () => {
-            this.snackBar.open('User successfully created!', 'Ok', { duration: 3000 });
-            this.router.navigate(['/home/users']);
-          },
-          error: (err: any) => {
-            this.snackBar.open(err.error, 'Ok', { duration: 3000 });
-          }
-        });
-    } else {
+    if(!this.createUserForm?.valid) {
       this.snackBar.open('Fields are required', 'OK', { duration: 3000 });
       return;
     }
+
+    this.user = Object.assign({}, this.user, this.createUserForm?.value);
+    this.user.role = parseInt(this.user.role.toString());
+    this.service.createUser(this.user)
+      .subscribe({
+        next: () => {
+          this.snackBar.open('User successfully created!', 'Ok', { duration: 3000 });
+          this.router.navigate(['/home/users']);
+        },
+        error: (err: any) => {
+          this.snackBar.open(err.error, 'Ok', { duration: 3000 });
+        }
+      });
   }
 }
