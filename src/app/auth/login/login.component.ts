@@ -47,9 +47,6 @@ export class LoginComponent implements OnInit {
           this.snackBar.open(`Welcome ${response.user.nickName}`, 'OK', { duration: 3000 });
           this.sessionStorageService.saveUser(response);
           this.router.navigate(['/home']);
-        },
-        error: (err: any) => {
-          this.snackBar.open(err.error, 'OK', { duration: 3000 });
         }
       });
   }

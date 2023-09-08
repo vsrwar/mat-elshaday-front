@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { DashboardComponent } from '../dashboard/dashboard.component';
+
 import { HomeComponent } from './home.component';
+
 import { UserComponent } from '../users/user.component';
 import { UserCreateComponent } from '../users/create/create.component';
 import { UserEditComponent } from '../users/edit/edit.component';
+
 import { DepartmentsComponent } from '../departments/departments.component';
+import { DepartmentCreateComponent } from '../departments/create/create.component';
+
 import { PeopleComponent } from '../people/people.component';
 import { PersonCreateComponent } from '../people/create/create.component';
 import { PersonEditComponent } from '../people/edit/edit.component';
@@ -20,6 +26,7 @@ const routes: Routes = [
     { path: 'users/edit/:id', component: UserEditComponent },
 
     { path: 'departments', component: DepartmentsComponent },
+    { path: 'departments/create', component: DepartmentCreateComponent },
 
     { path: 'people', component: PeopleComponent },
     { path: 'people/create', component: PersonCreateComponent },

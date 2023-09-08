@@ -1,1 +1,46 @@
-<p>departments works!</p>
+<div class="container">
+    <div class="header">
+      <h2>Departments</h2>
+      <button mat-flat-button [routerLink]="['create']">
+        <mat-icon>add_circle_outline</mat-icon>
+        <span>Add Department</span>
+      </button>
+    </div>
+
+    <table mat-table [dataSource]="departments" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let department"> {{department.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let department"> {{department.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="responsableName">
+        <th mat-header-cell *matHeaderCellDef> Responsable </th>
+        <td mat-cell *matCellDef="let department"> {{department.responsableName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let user">
+          <mat-icon class="icon-action" (click)="delete(user.id)">delete_forever</mat-icon>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <div class="footer">
+      <mat-paginator [length]="totalDepartments"
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        [showFirstLastButtons]="true"
+        aria-label="Select page"
+        (page)="handlePageEvent($event)">
+      </mat-paginator>
+    </div>
+  </div>

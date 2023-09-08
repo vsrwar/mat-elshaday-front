@@ -50,9 +50,6 @@ export class ChangePasswordComponent implements OnInit{
           } else {
             this.snackBar.open('Unable to change password', 'Ok', { duration: 3000 });
           }
-        },
-        error: (err: any) => {
-          this.snackBar.open(err.error.title, 'Ok', { duration: 3000 });
         }
       });
   }

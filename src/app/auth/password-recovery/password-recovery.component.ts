@@ -38,9 +38,6 @@ export class PasswordRecoveryComponent implements OnInit{
           } else {
             this.snackBar.open('Unable to change this user password, contact support', 'OK', { duration: 3000 });
           }
-        },
-        error: (err: any) => {
-          this.snackBar.open(err.error, 'OK', { duration: 3000 });
         }
       });
   }

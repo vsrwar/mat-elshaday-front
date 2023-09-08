@@ -2,6 +2,18 @@
     display: flex;
     min-height: 100vh;
     background-color: #eee;
+
+    button {
+        background-color: white;
+        color: #f49121;
+        border: 1px solid #f49121;
+        margin-bottom: 25px;
+    }
+
+    button:hover {
+        background-color: #f49121;
+        color: white;
+    }
 }
 
 aside {

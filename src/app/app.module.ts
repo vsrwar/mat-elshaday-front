@@ -18,6 +18,7 @@ import {  HttpClientModule } from '@angular/common/http';
 import { Interceptor } from './http-interceptor.module';
 import { PasswordRecoveryComponent } from './auth/password-recovery/password-recovery.component';
 import { ChangePasswordComponent } from './auth/change-password/change-password.component';
+import { JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,14 @@ import { ChangePasswordComponent } from './auth/change-password/change-password.
     BrowserAnimationsModule,
     HttpClientModule,
     Interceptor,
+
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return sessionStorage.getItem('access_token');
+        }
+      }
+    }),
 
     MatButtonModule,
     MatCardModule,

@@ -1,0 +1,40 @@
+<div class="container">
+  <h2>Create a new Department</h2>
+  <mat-tab-group mat-align-tabs="center" [color]="'warn'">
+    <mat-tab label="Physical">
+      <div class="center-horizontal-vertical">
+        <form (ngSubmit)="createPhysicalPersonDepartment()" [formGroup]="createPhysicalPersonDepartmentForm">
+          <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label> 
+            <input matInput formControlName="name" placeholder="John Doe" required />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Responsible</mat-label>
+            <mat-select formControlName="responsibleId">
+              <mat-option *ngFor="let person of availablePhysicalPeople" [value]="person.id">{{person.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-flat-button class="submit-btn" type="submit">Submit</button>
+        </form>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Legal">
+      <div class="center-horizontal-vertical">
+        <form (ngSubmit)="createLegalPersonDepartment()" [formGroup]="createLegalPersonDepartmentForm">
+          <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label> 
+            <input matInput formControlName="name" placeholder="John Doe" required />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Responsible</mat-label>
+            <mat-select formControlName="responsibleId">
+              <mat-option *ngFor="let person of availableLegalPeople" [value]="person.id">{{person.corporateName}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-flat-button class="submit-btn" type="submit">Submit</button>
+        </form>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

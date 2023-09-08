@@ -35,10 +35,6 @@ export class UserEditComponent implements OnInit{
               role: [`${user.role}`, Validators.required],
               active: [user.active, Validators.required]
             });
-          },
-          error: (err: any) => {
-            this.snackBar.open(err.error.title, 'Ok', { duration: 3000 });
-            this.router.navigate(['/users']);
           }
         });
     } else {
@@ -51,22 +47,19 @@ export class UserEditComponent implements OnInit{
   }
 
   editUser(){
-    if(this.editUserForm?.valid) {
-      this.user = Object.assign({}, this.user, this.editUserForm?.value);
-      this.user!.role = parseInt(this.user!.role.toString());
-      this.service.updateUser(this.user!)
-        .subscribe({
-          next: () => {
-            this.snackBar.open('User successfully edited!', 'Ok', { duration: 3000 });
-            this.router.navigate(['/home/users']);
-          },
-          error: (err: any) => {
-            this.snackBar.open(err.error, 'Ok', { duration: 3000 });
-          }
-        });
-    } else {
+    if(!this.editUserForm?.valid) {
       this.snackBar.open('Fields are required', 'OK', { duration: 3000 });
       return;
     }
+
+    this.user = Object.assign({}, this.user, this.editUserForm?.value);
+    this.user!.role = parseInt(this.user!.role.toString());
+    this.service.updateUser(this.user!)
+      .subscribe({
+        next: () => {
+          this.snackBar.open('User successfully edited!', 'Ok', { duration: 3000 });
+          this.router.navigate(['/home/users']);
+        }
+      });
   }
 }

@@ -5,6 +5,9 @@
   <div class="content">
     <home-header [nickname]="user.nickName" class="w-100"></home-header>
       <mat-card class="dynamic-content">
+        <mat-card-header>
+          <button mat-flat-button (click)="back()"><mat-icon>keyboard_backspace</mat-icon>Back</button>
+        </mat-card-header>
         <mat-card-content>
           <router-outlet></router-outlet>
         </mat-card-content>

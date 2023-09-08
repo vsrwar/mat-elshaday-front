@@ -14,7 +14,7 @@
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>CPF</mat-label> 
-            <input matInput formControlName="cpf" placeholder="xxx.xxx.xxx-xx" type="text" maxlength="11" required />
+            <input matInput formControlName="cpf" mask="000.000.000-00" placeholder="xxx.xxx.xxx-xx" type="text" required />
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>Qualifier</mat-label> 
@@ -26,7 +26,7 @@
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>Zip Code</mat-label> 
-            <input matInput formControlName="cep" placeholder="xx.xxx-xxx" type="text" (change)="cepPhysicalChanged($event)" maxlength="8" required />
+            <input matInput formControlName="cep" mask="00000-000" placeholder="xxxxx-xxx" type="text" (change)="cepPhysicalChanged($event)" required />
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>Logradouro</mat-label> 
@@ -70,7 +70,7 @@
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>CNPJ</mat-label> 
-            <input matInput formControlName="cnpj" placeholder="xx.xxx.xxx/xxxx-xx" type="text" maxlength="14" required />
+            <input matInput formControlName="cnpj" mask="00.000.000/0000-00" placeholder="xx.xxx.xxx/xxxx-xx" type="text" required />
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>Qualifier</mat-label> 
@@ -82,7 +82,7 @@
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>Zip Code</mat-label> 
-            <input matInput formControlName="cep" placeholder="xx.xxx-xxx" type="text" (change)="cepLegalChanged($event)" maxlength="8" required />
+            <input matInput formControlName="cep" mask="00000-000" placeholder="xxxxx-xxx" type="text" (change)="cepLegalChanged($event)" required />
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>Logradouro</mat-label> 

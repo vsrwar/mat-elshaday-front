@@ -94,10 +94,6 @@ export class PersonCreateComponent implements OnInit {
         next: () => {
           this.snackBar.open('Physical person created successfully', 'Ok', { duration: 3000 });
           this.router.navigate(['/home/people']);
-        },
-        error: (err) => {
-          console.log(err);
-          this.snackBar.open(err.error, 'Ok', { duration: 3000 });
         }
       });
   }
@@ -126,16 +122,13 @@ export class PersonCreateComponent implements OnInit {
         next: () => {
           this.snackBar.open('Legal person created successfully', 'Ok', { duration: 3000 });
           this.router.navigate(['/home/people']);
-        },
-        error: (err) => {
-          this.snackBar.open(err.error, 'Ok', { duration: 3000 });
         }
       });
   }
   
   cepPhysicalChanged(event: any) {
-    if(event.target.value.length != 8) return;
-    const cep = event.target.value;
+    if(event.target.value.length != 9) return;
+    const cep = event.target.value.replace('-', '');
 
     this.service.getAddressesByCep(cep)
       .subscribe({
@@ -145,16 +138,13 @@ export class PersonCreateComponent implements OnInit {
           this.createPhysicalPersonForm.controls['bairro'].setValue(address.bairro);
           this.createPhysicalPersonForm.controls['localidade'].setValue(address.localidade);
           this.createPhysicalPersonForm.controls['uf'].setValue(address.uf);
-        },
-        error: (error) => {
-          this.snackBar.open(error.message, 'Ok', { duration: 3000 });
         }
       });
   }
 
   cepLegalChanged(event: any) {
-    if(event.target.value.length != 8) return;
-    const cep = event.target.value;
+    if(event.target.value.length != 9) return;
+    const cep = event.target.value.replace('-', '');
 
     this.service.getAddressesByCep(cep)
       .subscribe({
@@ -164,9 +154,6 @@ export class PersonCreateComponent implements OnInit {
           this.createLegalPersonForm.controls['bairro'].setValue(address.bairro);
           this.createLegalPersonForm.controls['localidade'].setValue(address.localidade);
           this.createLegalPersonForm.controls['uf'].setValue(address.uf);
-        },
-        error: (error) => {
-          this.snackBar.open(error.message, 'Ok', { duration: 3000 });
         }
       });
   }

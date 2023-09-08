@@ -72,10 +72,6 @@ export class PersonEditComponent implements OnInit {
           this.updatePhysicalPersonForm.controls['bairro'].disable();
           this.updatePhysicalPersonForm.controls['localidade'].disable();
           this.updatePhysicalPersonForm.controls['uf'].disable();
-        },
-        error: (error) => {
-          this.snackBar.open('Error while retriving person, try again later', 'Ok', { duration: 3000 });
-          this.router.navigate(['/home/people']);
         }
       });
   }
@@ -105,10 +101,6 @@ export class PersonEditComponent implements OnInit {
           this.updateLegalPersonForm.controls['bairro'].disable();
           this.updateLegalPersonForm.controls['localidade'].disable();
           this.updateLegalPersonForm.controls['uf'].disable();
-        },
-        error: (error) => {
-          this.snackBar.open('Error while retriving person, try again later', 'Ok', { duration: 3000 });
-          this.router.navigate(['/home/people']);
         }
       });
   }
@@ -137,10 +129,6 @@ export class PersonEditComponent implements OnInit {
         next: () => {
           this.snackBar.open('Physical person edited successfully', 'Ok', { duration: 3000 });
           this.router.navigate(['/home/people']);
-        },
-        error: (err) => {
-          console.log(err);
-          this.snackBar.open(err.error, 'Ok', { duration: 3000 });
         }
       });
   }
@@ -169,16 +157,13 @@ export class PersonEditComponent implements OnInit {
         next: () => {
           this.snackBar.open('Legal person edited successfully', 'Ok', { duration: 3000 });
           this.router.navigate(['/home/people']);
-        },
-        error: (err) => {
-          this.snackBar.open(err.error, 'Ok', { duration: 3000 });
         }
       });
   }
 
   cepPhysicalChanged(event: any) {
-    if(event.target.value.length != 8) return;
-    const cep = event.target.value;
+    if(event.target.value.length != 9) return;
+    const cep = event.target.value.replace('-', '');
 
     this.service.getAddressesByCep(cep)
       .subscribe({
@@ -193,16 +178,13 @@ export class PersonEditComponent implements OnInit {
           this.updatePhysicalPersonForm.controls['bairro'].setValue(address.bairro);
           this.updatePhysicalPersonForm.controls['localidade'].setValue(address.localidade);
           this.updatePhysicalPersonForm.controls['uf'].setValue(address.uf);
-        },
-        error: (error) => {
-          this.snackBar.open(`ViaCep error: ${JSON.stringify(error)}`, 'Ok', { duration: 3000 });
         }
       });
   }
 
   cepLegalChanged(event: any) {
-    if(event.target.value.length != 8) return;
-    const cep = event.target.value;
+    if(event.target.value.length != 9) return;
+    const cep = event.target.value.replace('-', '');
 
     this.service.getAddressesByCep(cep)
       .subscribe({
@@ -217,9 +199,6 @@ export class PersonEditComponent implements OnInit {
           this.updateLegalPersonForm.controls['bairro'].setValue(address.bairro);
           this.updateLegalPersonForm.controls['localidade'].setValue(address.localidade);
           this.updateLegalPersonForm.controls['uf'].setValue(address.uf);
-        },
-        error: (error) => {
-          this.snackBar.open(`ViaCep error: ${JSON.stringify(error)}`, 'Ok', { duration: 3000 });
         }
       });
   }

@@ -43,9 +43,6 @@ export class UserCreateComponent {
         next: () => {
           this.snackBar.open('User successfully created!', 'Ok', { duration: 3000 });
           this.router.navigate(['/home/users']);
-        },
-        error: (err: any) => {
-          this.snackBar.open(err.error, 'Ok', { duration: 3000 });
         }
       });
   }

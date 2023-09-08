@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxMaskDirective, NgxMaskPipe, provideEnvironmentNgxMask, provideNgxMask } from 'ngx-mask';
 
 import { HeaderComponent } from '../pages/layout/header/header.component';
 import { FooterComponent } from '../pages/layout/footer/footer.component';
@@ -19,6 +20,7 @@ import { UserCreateComponent } from '../users/create/create.component';
 import { UserEditComponent } from '../users/edit/edit.component';
 
 import { DepartmentsComponent } from '../departments/departments.component';
+import { DepartmentCreateComponent } from '../departments/create/create.component';
 
 import { PeopleComponent } from '../people/people.component';
 import { PersonCreateComponent } from '../people/create/create.component';
@@ -38,6 +40,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTabsModule} from '@angular/material/tabs';
 
+import { DocumentPipe } from 'src/app/pipes/document.pipe';
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -52,17 +56,23 @@ import {MatTabsModule} from '@angular/material/tabs';
     UserEditComponent,
 
     DepartmentsComponent,
+    DepartmentCreateComponent,
 
     PeopleComponent,
     PersonCreateComponent,
     PersonEditComponent,
 
-    ConfirmActionDialogComponent
+    ConfirmActionDialogComponent,
+    
+    DocumentPipe
   ],
   imports: [
     HomeRoutingModule,
     CommonModule,
     ReactiveFormsModule,
+    
+    NgxMaskDirective,
+    NgxMaskPipe,
     
     MatCardModule,
     MatIconModule,
@@ -77,6 +87,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatDialogModule,
     MatPaginatorModule,
     MatTabsModule
-  ]
+  ],
+  providers: [provideEnvironmentNgxMask(), provideNgxMask()],
 })
 export class HomeModule { }

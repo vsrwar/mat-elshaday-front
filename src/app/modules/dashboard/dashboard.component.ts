@@ -24,7 +24,9 @@ export class DashboardComponent implements OnInit{
     this.service.getTotalLegalPeople().subscribe((data) => this.countLegalPeople = data);
     this.service.getTotalPhysicalPeople().subscribe((data) => this.countPhysicalPeople = data);
     this.service.getTotalDepartments().subscribe((data) => this.countDepartments = data);
-    this.service.getTotalUsers().subscribe((data) => this.countUsers = data);
+    if(this.isAdmin){
+      this.service.getTotalUsers().subscribe((data) => this.countUsers = data);
+    }
   }
 
 }
